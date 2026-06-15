@@ -2,4 +2,3 @@ src/
 pkg/
 *.tar.gz
 *.tar.zst
-.SRCINFO

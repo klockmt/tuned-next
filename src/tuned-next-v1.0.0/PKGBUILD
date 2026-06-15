@@ -11,7 +11,7 @@ depends=('tuned' 'zram-generator' 'python')
 conflicts=('power-profiles-daemon')
 provides=('power-profiles-daemon')
 source=("${pkgname}-${pkgver}.tar.gz::${url}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.gz")
-sha256sums=('cbd27d36127cd1edcf58ee08cfddd17450aefde84a5715a787c55f60444406d2')
+sha256sums=('bfbc3a8434551c18bd9b398c3eea0ea2ac77a2dedfd22519f8feb3dfc4459150')
 
 package() {
     cd "${srcdir}/${pkgname}-v${pkgver}"

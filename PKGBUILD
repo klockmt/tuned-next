@@ -1,17 +1,15 @@
 # Maintainer: @klock.mt
 
 pkgname=tuned-next
-pkgver=1.0.1
+pkgver=1.0.2
 pkgrel=1
 pkgdesc="Advanced power management profiles with TuneD, PPD replacement, and ZRAM optimization"
 arch=('any')
 url="https://gitlab.com/KlockMt/tuned-next" 
 license=('GPL-3.0-or-later')
 depends=('tuned' 'tuned-ppd' 'zram-generator' 'python')
-conflicts=('power-profiles-daemon')
-provides=('power-profiles-daemon')
 source=("${pkgname}-${pkgver}.tar.gz::${url}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.gz")
-sha256sums=('89b88320e8acd86c606115b03ac9491cf13dd4111679a0422689180de5d3c8ee')
+sha256sums=('SKIP') 
 
 package() {
     cd "${srcdir}/${pkgname}-v${pkgver}"

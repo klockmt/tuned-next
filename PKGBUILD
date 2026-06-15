@@ -1,7 +1,7 @@
 # Maintainer: @klock.mt
 
 pkgname=tuned-next
-pkgver=1.0.2
+pkgver=1.0.3
 pkgrel=1
 pkgdesc="Advanced power management profiles with TuneD, PPD replacement, and ZRAM optimization"
 arch=('any')
@@ -19,7 +19,8 @@ package() {
         install -Dm644 "profiles/${profile}/tuned.conf" "${pkgdir}/etc/tuned/profiles/${profile}/tuned.conf"
     done
 
-    install -Dm644 "config/ppd.conf" "${pkgdir}/etc/tuned/ppd.conf"
+    install -Dm644 "config/ppd.conf" "${pkgdir}/usr/share/tuned-next/ppd.conf"
+    
     install -Dm644 "config/tuned-next.conf" "${pkgdir}/etc/systemd/zram-generator.conf.d/tuned-next.conf"
     install -Dm755 "scripts/tuned-next-setup.py" "${pkgdir}/usr/bin/tuned-next-setup"
-}   
+}

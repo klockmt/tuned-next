@@ -34,9 +34,17 @@ def main():
     run_command(["systemctl", "stop", "power-profiles-daemon.service"], "Stopping power-profiles-daemon (if active)")
     run_command(["systemctl", "mask", "power-profiles-daemon.service"], "Masking power-profiles-daemon")
     
-    # Try to start TuneD and TuneD-PPD. If they fail, rollback is triggered automatically.
+    # Try to start TuneD. If it fails, rollback is triggered automatically.
     run_command(["systemctl", "enable", "--now", "tuned.service"], "Enabling and starting TuneD service", exit_on_fail=True)
-    run_command(["systemctl", "enable", "--now", "tuned-ppd.service"], "Enabling and starting TuneD-PPD (GUI Integration)", exit_on_fail=True)
+    
+    # Check if tuned-ppd exists before trying to enable it (Professor's Code Review)
+    print("[*] Checking for GUI Integration (tuned-ppd)...")
+    ppd_check = subprocess.run(['systemctl', 'list-unit-files', 'tuned-ppd.service'], capture_output=True, text=True)
+    
+    if 'tuned-ppd.service' in ppd_check.stdout:
+        run_command(["systemctl", "enable", "--now", "tuned-ppd.service"], "Enabling and starting TuneD-PPD (GUI Integration)", exit_on_fail=False)
+    else:
+        print("    [ WARN ] tuned-ppd.service not found. Skipping GNOME/KDE GUI integration.")
     
     # ZRAM setup is independent, a failure here shouldn't break the power profiles
     run_command(["systemctl", "daemon-reload"], "Reloading systemd daemons")

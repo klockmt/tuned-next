@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 def main():
     if os.geteuid() != 0:
         print("[!] Error: This script must be run as root (sudo).")

@@ -1,0 +1,15 @@
+pkgbase = tuned-next
+	pkgdesc = Advanced power management profiles with TuneD, PPD replacement, and ZRAM optimization
+	pkgver = 1.0.3
+	pkgrel = 1
+	url = https://gitlab.com/KlockMt/tuned-next
+	arch = any
+	license = GPL-3.0-or-later
+	depends = tuned
+	depends = tuned-ppd
+	depends = zram-generator
+	depends = python
+	source = tuned-next-1.0.3.tar.gz::https://gitlab.com/KlockMt/tuned-next/-/archive/v1.0.3/tuned-next-v1.0.3.tar.gz
+	sha256sums = bf70713e22b8e11bdc3333a1358b29d646a424616149b651d3f8d67ecc35ab04
+
+pkgname = tuned-next

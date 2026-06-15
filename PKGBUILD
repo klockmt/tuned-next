@@ -11,22 +11,17 @@ depends=('tuned' 'zram-generator' 'python')
 conflicts=('power-profiles-daemon')
 provides=('power-profiles-daemon')
 source=("${pkgname}-${pkgver}.tar.gz::${url}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.gz")
-sha256sums=('bdc4618140f61b6251bdb139a3a763583d72dc5f13360f222ae7b0beeb055b03')
+sha256sums=('7a98b855995fccb642bd1aafa41edd0745019ec89436f64504ba500ab64d9659')
 
 package() {
     cd "${srcdir}/${pkgname}-v${pkgver}"
 
     for profile in Ultra-Saver Bat-Balanced Bat-Performance Ac-Performance Gaming-mode Kernel-comp; do
-
-        install -dm755 "${pkgdir}/usr/lib/tuned/${profile}"
-
-        install -Dm644 "profiles/${profile}/tuned.conf" "${pkgdir}/usr/lib/tuned/${profile}/tuned.conf"
-
+        install -dm755 "${pkgdir}/etc/tuned/profiles/${profile}"
+        install -Dm644 "profiles/${profile}/tuned.conf" "${pkgdir}/etc/tuned/profiles/${profile}/tuned.conf"
     done
 
     install -Dm644 "config/ppd.conf" "${pkgdir}/etc/tuned/ppd.conf"
-
     install -Dm644 "config/tuned-next.conf" "${pkgdir}/etc/systemd/zram-generator.conf.d/tuned-next.conf"
-
     install -Dm755 "scripts/tuned-next-setup.py" "${pkgdir}/usr/bin/tuned-next-setup"
 }

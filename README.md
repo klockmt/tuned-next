@@ -39,3 +39,11 @@ sudo tuned-next-setup
 
 ## 🤝 Contributing
 Since this started as an academic project with long-term goals, contributions, issues, and pull requests are highly welcome. Let's make Linux power management better!
+
+## Manual install
+
+```bash
+git clone https://gitlab.com/KlockMt/tuned-next.git
+cd tuned-next
+makepkg -si
+```

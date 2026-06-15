@@ -9,7 +9,7 @@ url="https://gitlab.com/KlockMt/tuned-next"
 license=('GPL-3.0-or-later')
 depends=('tuned' 'tuned-ppd' 'zram-generator' 'python')
 source=("${pkgname}-${pkgver}.tar.gz::${url}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.gz")
-sha256sums=('da2a4c2c14b405a1c610398ef052ae5d5099211c0b98eb337ef6f22b6a47e47c')
+sha256sums=('f6ca8b711428bcdc88e9385280f20107a37e4cb6220ad6c7ffa4b4b8bec5e7ca')
 
 package() {
     cd "${srcdir}/${pkgname}-v${pkgver}"

@@ -8,7 +8,7 @@ build-arch-package:
   script:
     - pacman -Syu --noconfirm base-devel sudo git python
     - useradd -m builduser
-    - echo "builduser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+    - 'echo "builduser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers'
     - chown -R builduser:builduser .
     - su - builduser -c "updpkgsums && makepkg -s --noconfirm"
   artifacts:

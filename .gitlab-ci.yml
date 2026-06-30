@@ -10,7 +10,7 @@ build-arch-package:
     - useradd -m builduser
     - 'echo "builduser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers'
     - chown -R builduser:builduser .
-    - su - builduser -c "updpkgsums && makepkg -s --noconfirm"
+    - su - builduser -c "makepkg -s --noconfirm"
   artifacts:
     paths:
       - "*.pkg.tar.zst"

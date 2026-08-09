@@ -43,7 +43,7 @@ Since this started as an academic project with long-term goals, contributions, i
 ## Manual install
 
 ```bash
-git clone https://gitlab.com/KlockMt/tuned-next.git
+git clone https://gitlab.com/klock.mt/tuned-next.git
 cd tuned-next
 makepkg -si
 ```

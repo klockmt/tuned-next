@@ -1,7 +1,7 @@
 # Maintainer: @klock.mt
 
 pkgname=tuned-next
-pkgver=1.1
+pkgver=1.1.1
 pkgrel=1
 pkgdesc="Advanced power management profiles with TuneD, PPD replacement, and ZRAM optimization"
 arch=('any')

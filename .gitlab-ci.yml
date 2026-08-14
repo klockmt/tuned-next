@@ -6,7 +6,8 @@ stages:
 build-arch-package:
   stage: build
   script:
-    - pacman -Syu --noconfirm base-devel sudo git python
+    - pacman -Syu --noconfirm
+    - pacman -S --noconfirm --needed base-devel sudo git python
     - useradd -m builduser
     - 'echo "builduser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers'
     - chown -R builduser:builduser .
